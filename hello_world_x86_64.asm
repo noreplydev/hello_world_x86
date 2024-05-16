@@ -33,7 +33,7 @@ print_string:
     .done:
         ret                  ; return
 
-hello_string db 'Hello, World!', 0 // define bytes for string and end on 0
+hello_string db 'Hello, World!', 0 ; define bytes for string and end on 0
 
 times 510-($-$$) db 0        ; fill with 0 until the 510 byte (included)
 dw 0xAA55                    ; sign the bytes 511 and 512 
