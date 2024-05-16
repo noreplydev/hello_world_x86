@@ -19,7 +19,7 @@ start:
     hang:
         jmp hang
 
-; Función para imprimir cadenas terminadas en cero
+; print strings that ends on 0
 print_string:
     mov ah, 0x0E             ; teletype mode on text mode
 
@@ -31,10 +31,10 @@ print_string:
         jmp .next_char       ; jump to the next char/byte
 
     .done:
-        ret
+        ret                  ; return
 
-hello_string db 'Hello, World!', 0
+hello_string db 'Hello, World!', 0 // define bytes for string and end on 0
 
-times 510-($-$$) db 0        ; Rellena el sector con ceros hasta el byte 510
-dw 0xAA55                    ; Word de firma de sector de arranque, en el byte 511 y 512
+times 510-($-$$) db 0        ; fill with 0 until the 510 byte (included)
+dw 0xAA55                    ; sign the bytes 511 and 512 
 
